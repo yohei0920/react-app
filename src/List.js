@@ -1,3 +1,5 @@
+import React from 'react'
+
 const LANGAGES = [
     "Ruby",
     "JavaScript",
@@ -6,9 +8,10 @@ const LANGAGES = [
     "C++"
 ]
 
-export const List = () => {
-    return (
-      <div>
+export class List extends React.Component  {
+    render() {
+        return (
+            <div>
         {
             LANGAGES.map( (lang, index) => {
                 return(
@@ -20,4 +23,5 @@ export const List = () => {
         }
       </div>
     )
+   }
   }

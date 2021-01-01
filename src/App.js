@@ -1,24 +1,30 @@
-import { useState } from 'react';
-import { List } from "./List";
-import { Form } from "./Form";
+import React from 'react'
+import { Form } from './Form'
+import { List } from './List'
 
-function App() {
-  const [tab, setTab] = useState('list')
-
-  return (
-    <div>
-      <header>
-        <ul>
-          <li onClick={ () => setTab('list') }>リスト</li>
-          <li onClick={ () => setTab('form') }>フォーム</li>
-        </ul>
-      </header>
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      tab: 'list'
+    }
+  }
+  render() {
+    const { tab } = this.state
+    return (
+      <div>
+        <header>
+          <ul>
+            <li onClick={ () => this.setState({ tab: 'list' }) } >リスト</li>
+            <li onClick={ () => this.setState({ tab: 'form' }) }>フォーム</li>
+          </ul>
+        </header>
       <hr/>
       {
         tab === 'list' ? <List /> : <Form />
       }
-    </div>
-  );
-}
-
+      </div>
+      )}
+    }
+    
 export default App;
